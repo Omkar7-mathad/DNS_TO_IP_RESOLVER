@@ -1,21 +1,16 @@
 from flask import Flask, request, render_template_string, redirect
 import socket
 import time
-
 app = Flask(__name__)
-
 # Stores domain and IP address
 dns_cache = {}
-
 # Stores previous searches
 history = []
-
 HTML = """
 <!DOCTYPE html>
 <html>
 <head>
     <title>DNS Resolver</title>
-
     <style>
         body {
             font-family: Arial;
@@ -73,13 +68,9 @@ HTML = """
         }
     </style>
 </head>
-
 <body>
-
 <div class="box">
-
     <h1>Domain to IP Address Resolver</h1>
-
     <p>
         This project demonstrates DNS resolution and DNS caching.
     </p>
@@ -190,8 +181,6 @@ HTML = """
 </body>
 </html>
 """
-
-
 def clean_domain(domain):
     domain = domain.strip().lower()
 
@@ -281,8 +270,6 @@ def resolve():
         result=result,
         history=history
     )
-
-
 @app.route("/clear-cache", methods=["POST"])
 def clear_cache():
 
